@@ -100,14 +100,17 @@ for page in range(1, 11):
     if page < 10:
         try:
             if page == 1:
-                driver.find_element(
-                    'xpath', '//a/span[text()="Next"]'
-                ).click()
+                next_button = driver.find_element(
+                    'xpath',
+                    '/html/body/div/div/div[3]/div[1]/div[2]/div[26]/div/div/nav/a[11]/span'
+                )
             else:
-                driver.find_element(
-                    'xpath', '//a/span[text()="Next"]'
-                ).click()
+                next_button = driver.find_element(
+                    'xpath',
+                    '/html/body/div/div/div[3]/div[1]/div[2]/div[26]/div/div/nav/a[12]/span'
+                )
 
+            next_button.click()
             time.sleep(3)
 
         except:
@@ -129,3 +132,4 @@ df = pd.DataFrame(data_records)
 df.to_csv("Output_records.csv", index=False)
 
 driver.quit()
+
